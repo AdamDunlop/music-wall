@@ -1,0 +1,21 @@
+ <div class="container">
+ <h1>All Songs</h1>
+ <h4>Hello, <%= session[:user_name].capitalize %> — <a href=/logout>Logout here</a></h4>
+<h4><a href="/songs/new">Add a new song</a></h4>
+
+<legend>
+<% @songs.each do |song| %>
+  <div class="song">
+    <h3><%= song.title %> — <%= song.artist %>
+  <br>
+  <img src= <%= song.album_cover %> /> <br>
+ <a href=<%= song.url %>>&#9654; Listen now</a>
+    </h3>
+
+  </div>
+<% end %>
+</legend>
+</div>
+<hr>
+<h4><a href="/">Home Page</a> </h4>
+<h4><a href="/login">Login here</a></h4>

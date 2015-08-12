@@ -1,0 +1,68 @@
+<div class="container">
+<h1>Post a Song</h1>
+      <% if @user %>
+      <p> Post a song, <%=@user.user_name %></p>
+ 
+      <%end%>
+<legend>
+<form class="form-horizontal" method="post" action="/songs">
+  <div class="form-group">
+    <label for="inputArtist" class="col-sm-2 control-label">Artist:</label>
+      <div class="col-sm-6">
+    <input type="text" class="form-control transparent-input" name="artist" id="inputArtist" value="<%= @song.artist %>">
+  </div>
+  </div>
+  <div class="form-group">
+    <label for="InputTitle" class="col-sm-2 control-label">Title:</label>
+    <div class="col-sm-6">
+      <input type="text" class="form-control transparent-input" name="title" id="InputTitle" value"<%= @song.title %>">
+    </div>
+  </div> 
+   <div class="form-group transparent-input">
+    <label for="InputLyrics" class="col-sm-2 control-label">Lyrics:</label>
+    <div class="col-sm-6">
+      <textarea class="form-control transparent-textarea" rows="6" input type="text" id="InputLyrics" name ="lyrics" value"<%= @song.lyrics %>"></textarea>
+    </div>
+  </div>
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Album(url):</label>
+    <div class="col-sm-6">
+      <input type="text" name ="album_cover" class="form-control transparent-input" value"<%= @song.album_cover %>">
+    </div>
+  </div> 
+
+   <div class="form-group">
+    <label for="InputURL" class="col-sm-2 control-label">Song(url):</label>
+    <div class="col-sm-4">
+        <input type="text" name="url" class="form-control transparent-input" id="InputURL"  value="<%= @song.url %>">
+    </div>
+  </div> 
+      <div class="col-sm-6">
+      <input class="form-control transparent-input" type="submit" class="btn btn-default"> 
+      </div>
+</form>
+</legend>
+
+</div>
+
+
+
+<hr/>
+<a href="/songs">Back to Songs</a>
+<br>
+<a href="/">Homepage</a>
+
+<!-- <hr/>
+
+<#% if @song.errors.any? %>
+  <div>
+    <strong>Some issues with your song, please fix them:</strong>
+    <ul>
+      <#% @song.errors.full_messages.each do |song| %>
+        <li><#%= song %></li>
+      <#% end %>
+    </ul>
+  </div> 
+
+
+

@@ -1,0 +1,17 @@
+<div class="container">
+<h1>All Users</h1>
+<a href="/users/new">Sign up</a>
+
+<% @user.each do |user| %>
+  <div class="user">
+    <h3><%= user.user_name %></h3>
+<p><small>Member since: <%= user.created_at %></small></p>
+  </div>
+<% end %>
+
+<hr/>   
+<a href="/songs">View Songs</a>
+ <br>
+<a href="/">Homepage</a>
+</div>
+
