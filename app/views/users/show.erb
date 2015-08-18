@@ -1,14 +1,29 @@
-<h1>User profile for <%= @user.user_name %></h1>
-
-<p>
+<div class = "container">
+<h1>User profile for <%= @user.user_name.capitalize %></h1>
+<legend class = "container">
   Email: <%= @user.email %>
-</p>
-<p>  Username: <%=@user.user_name %>
-</p>
-<p>
+  <br>
+  Username: <%=@user.user_name %>
+  <br>
   ID: <%= @user.id %>
-</p>
-
-<hr/>
-<a href="/songs">Back to All Songs</a>
-<a href="/">Homepage</a>
+  <br>
+  Total Upvotes: <%=@user.upvotes.count %>
+  <br>
+  </legend>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<hr>
+<h4><a href="/songs">Back to Songs</a></h4>
+<h4><a href="/">Homepage</a></h4>
+<h4> <a href=/logout>Logout</a></h4>

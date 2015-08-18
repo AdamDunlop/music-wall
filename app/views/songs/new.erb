@@ -1,8 +1,8 @@
 <div class="container">
+     
 <h1>Post a Song</h1>
-      <% if @user %>
-      <p> Post a song, <%=@user.user_name %></p>
- 
+     <% if @user %>
+    <h4> <a href="/users/show"><%= @user.user_name.capitalize %></a> - Post a song!  </h4>
       <%end%>
 <legend>
 <form class="form-horizontal" method="post" action="/songs">
@@ -48,10 +48,10 @@
 
 
 <hr/>
-<a href="/songs">Back to Songs</a>
-<br>
-<a href="/">Homepage</a>
-
+<div class="container">
+<h4><a href="/songs">Back to Songs</a></h4>
+<h4><a href="/">Homepage</a></h4>
+</div>
 <!-- <hr/>
 
 <#% if @song.errors.any? %>

@@ -1,7 +1,7 @@
 class Upvote < ActiveRecord::Base
-  belongs_to :song
   belongs_to :user
+  belongs_to :song
 
-  # validates_uniqueness_of :song_id, :scope => :user_id
+  validates_uniqueness_of :song_id, scope: :user_id
 
 end

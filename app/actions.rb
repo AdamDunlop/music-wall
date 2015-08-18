@@ -4,6 +4,12 @@ configure do
   enable :sessions
 end
 
+helpers do
+  def current_user
+    @current_user ||=User.find_by(user_name:session[:user_name]) if session[:user_name]
+  end
+end
+
 
 get '/' do
   # @user = User.find(session[:id])
@@ -40,22 +46,28 @@ get '/songs' do
 end
 
 get '/songs/new' do
+  @user = User.find_by(id: session[:id])
   @song = Song.new
   erb :'songs/new'
 end
 
+
 post '/songs' do
+
   @song = Song.new(
     title: params[:title],
     artist: params[:artist],
     lyrics: params[:lyrics],
     url: params[:url], 
-    album_cover: params[:album_cover]
+    album_cover: params[:album_cover],
+    user_id: session[:id] 
     )
+ 
   if @song.save
+     
     redirect '/songs'
   else  
-    erb :'songs/new'
+    erb:'songs/new'
   end 
 end
 
@@ -102,6 +114,13 @@ end
 get '/users/show/:id' do
   @user = User.find params[:id]
   erb :'users/show'
+end
+
+get '/songs/:id/upvote' do
+  upvote = Upvote.new(user_id: current_user.id, song_id: params[:id])
+  upvote.save
+    redirect to('/users/show')
+ 
 end
 
 

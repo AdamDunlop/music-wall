@@ -1,5 +1,8 @@
 $(document).ready(function() {
   var animation = document.querySelector('.equalizer');
+
+
+  
   
   function onAnimation( evt ) {
     evt.stopPropagation();
@@ -10,4 +13,8 @@ $(document).ready(function() {
   animation.addEventListener('animationStart', onAnimation, false);
   animation.addEventListener('animationIteration', onAnimation, false);
 }
+
+}
+
 );
+

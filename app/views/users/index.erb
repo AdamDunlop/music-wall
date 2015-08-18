@@ -5,6 +5,9 @@
 <% @user.each do |user| %>
   <div class="user">
     <h3><%= user.user_name %></h3>
+    <% user.songs.each do |song| %>
+      <%= song.title %>
+    <% end %>
 <p><small>Member since: <%= user.created_at %></small></p>
   </div>
 <% end %>
